@@ -15,9 +15,19 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Sub-Title",
+          name: "subtitle",
+          widget: "string",
+          required: false,
+        }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "PracticeTemplate"
     label: "Practice"
@@ -81,3 +91,39 @@ collections:
               - { label: "Street Address", name: "street", widget: "string" }
               - { label: "City", name: "city", widget: "string" }
               - { label: "Postal Code", name: "post-code", widget: "string" }
+  - name: "events"
+    label: "Events"
+    folder: "src/data/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Header"
+        name: "header"
+        widget: "object"
+        fields:
+          - { label: "title", name: "Title", widget: "string" }
+          - {
+              label: "Sub-Title",
+              name: "subtitle",
+              widget: "string",
+              required: false,
+            }
+      - {
+          label: "Sub-Title",
+          name: "subtitle",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Event-Date"
+        name: "eventdate"
+        widget: "date"
+        default: ""
+        format: "MMM Do YY"
+        required: false
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        summary: "{{fields.image}}"
+        field: { label: Image, name: image, widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
