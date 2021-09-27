@@ -22,7 +22,7 @@ collections:
           widget: "string",
           required: false,
         }
-      - { label: 'Publish', name: 'publish', widget: 'date', default: '', format: 'Do MMMM YYYY' }
+      - { label: 'Publish', name: 'publish', widget: 'date', default: '', format: 'Do MMMM, YYYY' }
       - {
           label: "Featured Image",
           name: "thumbnail",
